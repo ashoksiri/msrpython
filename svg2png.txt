@@ -1,0 +1,22 @@
+import uuid
+import imgkit
+config = imgkit.config(wkhtmltoimage=r'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe')
+#config_path = r
+#data = request.data
+#image = data['image']
+# 'quiet': ''
+# options = {'zoom': 2,'width': '728', 'height': '728','disable-smart-width': ''}
+options = {'quiet': '','zoom': 1.0,'quality':100,'encoding':'utf-8','width': '1448', 'height': '1448', 'disable-smart-width': ''}
+import datetime,time
+ts=uuid.uuid4().hex
+
+filepath='{}.png'.format(str(ts))
+imgkit.from_file('210_TeeLongCrew_ChestBackSleeve_WebFront.svg','x.png',options=options,config=config)
+from PIL import Image
+import random, string
+im1 = Image.open('x.png')
+im2 = im1.copy()
+im2.save('y.png', dpi=(300, 300))
+im1 = Image.open('y.png')
+
+print(im1.info['dpi'])
