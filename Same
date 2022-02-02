@@ -6,7 +6,7 @@ def read_transparent_png(filename):
 
     rgb_channels = image_4channel[:,:,:3]
 
-    
+    # print hello
 
     # White Background Image
 
